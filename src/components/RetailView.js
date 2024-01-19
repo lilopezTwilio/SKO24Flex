@@ -6,6 +6,7 @@ import { Separator } from '@twilio-paste/separator';
 
 import ContactCard from "./ContactCard/ContactCard";
 import ConversationSummary from "./ConversationSummary";
+import Transcription from "./Transcription/Transcription";
 
 const RetailView = (props) => {
 
@@ -21,13 +22,35 @@ const RetailView = (props) => {
                     <TabPanel>
                         <Grid gutter="space30">
                                 <Column span={4}><ContactCard /></Column>
-                                <Column span={8}><ConversationSummary /></Column>
+                                {/* <Column span={8}><ConversationSummary /></Column> */}
+                                <Column span={8}>
+                                    <Tabs baseId="conversations">
+                                        <TabList aria-label="details-tab">
+                                            <Tab>Transcript</Tab>
+                                            <Tab>Conversation</Tab>
+                                            
+                                        </TabList>
+                                        <TabPanels>
+                                        <TabPanel>
+                                            <Grid gutter="space30">
+                                                    <Column span={12}>
+                                                        <Transcription />
+                                                    </Column>
+                                                </Grid>
+                                            </TabPanel>                                            
+                                            <TabPanel>
+                                                <ConversationSummary/>
+                                            </TabPanel>
+                                            
+                                        </TabPanels>
+                                    </Tabs>
+                                </Column>                                
                         </Grid>
                         <Separator orientation={'horizontal'} verticalSpacing="space40" />
-                        <Grid gutter="space30">
+                        {/* <Grid gutter="space30">
                                 <Column span={4}><ContactCard /></Column>
                                 <Column span={8}><ConversationSummary /></Column>
-                        </Grid>
+                        </Grid> */}
                     </TabPanel>
                     <TabPanel>
                         <Grid gutter="space30">

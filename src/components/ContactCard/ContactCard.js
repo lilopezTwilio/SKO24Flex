@@ -35,7 +35,6 @@ const ContactCard = (props) => {
 
     if (props.task) {
 
-        console.log('phone', props.task.attributes.from)
     let layout = (
         <div>
             <Box>

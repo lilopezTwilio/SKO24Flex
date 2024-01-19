@@ -14,8 +14,6 @@ const RetailWrapper = (props) => {
 
     const task = props.task
 
-    console.log('task: ',task)
-
     // if (props.task) {
     //      console.log('task exist', props.task)
     // } else {
@@ -25,13 +23,13 @@ const RetailWrapper = (props) => {
 
     let layout = (
         <div style={styles.wrapper}>
-            {/* { 
+            { 
             (task === undefined)? 
                 <NoActiveTask key={"noActiveTask"} /> 
                 : <RetailView key={"retailView"} /> 
-            } */}
+            }
 
-            <RetailView key={"retailView"} /> 
+            {/* <RetailView key={"retailView"} />  */}
 
         </div>
     )
