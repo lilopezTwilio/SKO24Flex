@@ -35,20 +35,19 @@ const ContactCard = (props) => {
 
     if (props.task) {
 
-        console.log('phone', props.task.attributes.from)
     let layout = (
         <div>
             <Box>
                 <Card padding="space70">
                     <Grid gutter="space20">
                         <Column span={2}>
-                        <Avatar size="sizeIcon100" name={'Jane Doe'} />
+                        <Avatar size="sizeIcon100" name={props.task.attributes.customerData.name} />
                         </Column>
 
                         <Column span={10}>
                         <Box display="flex" marginLeft="space60" justifyContent="space-between">
                             <Heading as="h2" variant="heading30" marginBottom="space0">
-                            { props.task.attributes.from}
+                            { props.task.attributes.customerData.name}
                             </Heading>
                             <Box>
                             <Tooltip text="Copy Segment ID.">
@@ -62,10 +61,8 @@ const ContactCard = (props) => {
                             <ListItem>
                             <PasteFlex vAlignContent="center">
                                 <StarIcon sx={{ color: '#FFD700', width: '1.25rem', height: '1.25rem' }} />
-                                
                                 <Text as={'div'} marginLeft="space30">
-                                
-                                Gold member
+                                {props.task.attributes.customerData.memberType}
                                 </Text>
                             </PasteFlex>
                             </ListItem>
@@ -73,7 +70,7 @@ const ContactCard = (props) => {
                             <PasteFlex>
                                 <EmailIcon decorative />
                                 <Text as={'div'} marginLeft="space30">
-                                { props.task.attributes.from }
+                                { props.task.attributes.customerData.email }
                                 </Text>
                             </PasteFlex>
                             </ListItem>
@@ -82,7 +79,7 @@ const ContactCard = (props) => {
                             <PasteFlex>
                                 <CallIcon decorative />
                                 <Text as={'div'} marginLeft="space30">
-                                { props.task.attributes.from }
+                                { props.task.attributes.customerData.phone }
                                 </Text>
                             </PasteFlex>
                             </ListItem>
@@ -92,7 +89,7 @@ const ContactCard = (props) => {
                         <Separator orientation={'horizontal'} verticalSpacing="space40" />
                         <Stack orientation={'vertical'} spacing={'space20'}>
                         <Heading as={'h2'} variant={'heading40'} marginBottom="space0">
-                            Closest Positronics Store
+                            Closest Store
                         </Heading>
                         <Paragraph marginBottom="space0">{'1234 Happy Canyon Way'}</Paragraph>
                         <Paragraph marginBottom="space0">
