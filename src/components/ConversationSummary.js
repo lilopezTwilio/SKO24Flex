@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { Card } from '@twilio-paste/card';
 
@@ -16,6 +16,25 @@ const styles = {
 
 const ConversationSummary = (props) => {
 
+    const [message, setMessage] = useState('There is no summary available yet as the agent is about to start a conversation with the customer');
+
+    /*
+    This is where you will make a fetch call to your serverless function (sample function found in the serverless-functions
+    folder in this repository). 
+
+    Uncomment the following useEffect block of code and replace the URL with your serverless function URL, make 
+    any other changes as needed. 
+    */
+
+    /*
+    useEffect(() => {
+        fetch('https://your-serverless-function-url.com')
+          .then(response => response.json())
+          .then(data => setMessage(data.message))
+          .catch(error => console.error('Error:', error));
+      }, []);
+    */
+
     let layout = (
         <div>
             <Box>
@@ -30,7 +49,7 @@ const ConversationSummary = (props) => {
                         <Column span={12}>
                             <Box display="flex" marginLeft="space60" justifyContent="space-between">
                                 <Paragraph marginBottom="space0">
-                                    {'There is no summary available yet as the agent is about to start a conversation with the customer'}
+                                    {message}
                                 </Paragraph>
                             </Box>
                         </Column>                                  
@@ -41,4 +60,4 @@ const ConversationSummary = (props) => {
     )
     return layout
 }
-export default ConversationSummary
+export default ConversationSummary;
