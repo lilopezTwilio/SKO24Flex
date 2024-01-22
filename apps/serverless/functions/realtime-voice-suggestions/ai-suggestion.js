@@ -13,26 +13,12 @@ exports.handler = async function(context, event, callback) {
     // get passed parameters
     // const { messages, language } = event;
     const language  = event.language
-    // const transcript = JSON.parse(event.transcript);
     const transcript = event.transcript
-
-    // console.log('in test')
-    // console.log('language', event.language)
-    // console.log('transcript', transcript)
-
-    // callback(null, response.setBody({status: "success", data: { language : language, transcript: transcript}}))
-    
 
     const openai = new OpenAI({
       apiKey: context.OPENAI_API_KEY,
     });
 
-    // console.log('openai', openai)
-
-    // result = {status: "success"}
-
-    // response.setBody(result)
-    // callback(null, response)
 
     // if (!language || !transcript) {
     //     throw new Error('Missing LANGUAGE or TRANSCRIPT parameters.');
@@ -57,14 +43,11 @@ exports.handler = async function(context, event, callback) {
           messages: prompt,
         });
     
-        // console.log('AI response', result.choices[0]);
 
         let suggestions = [];
         let success = false;
         if (result.choices[0].message.content) {
           let suggestionsJson = result.choices[0].message.content?.trim();
-        //   let suggestions = [];
-        //   let success = false;
           try {
             suggestions = JSON.parse(suggestionsJson);
             success = true;
@@ -73,9 +56,7 @@ exports.handler = async function(context, event, callback) {
             console.log('Error parsing results from AI', err);
           }
 
-          console.log('set result')
-          ret = {status : success, data : suggestions, blah: true }
-    
+          ret = {status : success, data : suggestions, blah: true }    
           response.setBody(ret);
           return callback(null, response);
         }
@@ -85,7 +66,6 @@ exports.handler = async function(context, event, callback) {
         console.log('in error', error.message);
         ret = { status: "error", data: error.message}
         callback(null, response.setBody(ret))
-        // return handleError(error);
       }    
 
 }

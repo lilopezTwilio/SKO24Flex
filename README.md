@@ -1,31 +1,65 @@
-# Your custom Twilio Flex Plugin
+# SKO 2024 Flex Transcription and AI Suggestions Demo
 
-Twilio Flex Plugins allow you to customize the appearance and behavior of [Twilio Flex](https://www.twilio.com/flex). If you want to learn more about the capabilities and how to use the API, check out our [Flex documentation](https://www.twilio.com/docs/flex).
+This repository contains several componenet deployments to use in for demonstrating real-time voice transcription with AI suggestions to the agent based on conversation between the customer and agent.
+
+The following elements and their file/folder location (parathensis), are part of this demonstration:
+
+1. Flex Plugin (src) - Custom UI interface that summarized the Customer data and more.
+2. Studio Voice Flow (studio) - This is raw JSON for the inbound Studio flow and must be imported into the Flex account.
+3. Serverless Package (serverless) - This serverless package contains a single Twilio Function that is called by the Flex Plugin
+4. Real-Time Transcription App - This is a node package that interacts with the Twilio Media Stream, Microsoft Speech Service and Twilio Sync Stream.
+
+### Demonstration Architecture
+
+The following image hightlight the architecture of this demonstation and the components above.
+
+![Demo](docs/demoArchitecture.jpg)
+
+### Screenshots - Transcription and AI Suggestions
+This screenshot illustrates the agent experience with real-time transcription of the 'customer/agent' conversation.  "Agent Assist" capabilites are displayed to the agent as well to aid in solving the customer's inquiry.
+
+![Demo](docs/FlexScreenShot.jpg)
 
 ## Setup
 
-Make sure you have [Node.js](https://nodejs.org) as well as [`npm`](https://npmjs.com). We support Node >= 10.12 (and recommend the _even_ versions of Node). Afterwards, install the dependencies by running `npm install`:
+The following steps are necessary to use this plugin package.  These are:
 
-```bash
-cd 
+1. Real-time Transcription Engine (apps/transcriptionEngine): Setup/Configure
+2. Plugin Serverless (apps/serverless) - Setup & Configure
+3. Import Studio Flow (app/studio)
+4. Flex Plugin (src) - Setup & Configure
 
-# If you use npm
-npm install
+### Real-time Transcription Engine - Setup/Configure
+This package is located within 'apps/transcriptionEngine'. Follow the README instructions inclusive to this package.
+
+After setup and configuration, run this app ( node index.js ) to launch the service on port 8080.
+
+### Plugin Serverless - Setup/Configure
+This package is located within 'apps/serverless'. Follow the README instructions inclusive to this package.
+
+After setup and configuration, launch the serverless ( twilio serverless:start ) to run locally on port 3000.
+
+### Import Studio Flow
+This package is located within 'apps/studio'. Within Twilio Studio, create a "New Flow" and import the JSON (copy/paste) from this resource.
+
+### Flex Plugin - Setup and Configure
+
+The following steps are necessary to configure and test the Flex Plugin.
+
+1. Build the package dependencies.
+
+```sh
+npm i
 ```
 
-Next, please install the [Twilio CLI](https://www.twilio.com/docs/twilio-cli/quickstart) by running:
+2. Install necessary pre-requisites ( [Twilio CLI](https://www.twilio.com/docs/twilio-cli/getting-started/install), [Flex Plugins CLI](https://www.twilio.com/docs/flex/developer/plugins/cli) & [Twilio Serverless Toolkit](https://www.twilio.com/docs/labs/serverless-toolkit) )
 
-```bash
-brew tap twilio/brew && brew install twilio
+3. Create a Twilio [account profile](https://www.twilio.com/docs/twilio-cli/general-usage/profiles) and mark it [active](https://www.twilio.com/docs/twilio-cli/general-usage/profiles#set-an-active-profile)
+
+4. Launch the Flex Plugin
+
+While logged into the Twilio Flex account via Twilio Console, launch the Flex Plugin on port 3001.
+
+```sh
+twilio flex:plugins:start
 ```
-
-Finally, install the [Flex Plugin extension](https://github.com/twilio-labs/plugin-flex/tree/v1-beta) for the Twilio CLI:
-
-```bash
-twilio plugins:install @twilio-labs/plugin-flex
-```
-
-## Development
-
-Run `twilio flex:plugins --help` to see all the commands we currently support. For further details on Flex Plugins refer to our documentation on the [Twilio Docs](https://www.twilio.com/docs/flex/developer/plugins/cli) page.
-

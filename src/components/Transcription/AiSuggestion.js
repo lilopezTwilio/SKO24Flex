@@ -2,17 +2,11 @@
 import { useEffect, useState } from 'react';
 import { Manager } from '@twilio/flex-ui'
 import { withTaskContext } from '@twilio/flex-ui';
-// import { AiSuggestion, TranscriptTurn } from '../types/VoiceAssistTypes';
-import VoiceSuggestionsService from '../../helpers/VoiceSuggestionService'
 import SuggestionCard from './SuggestionCard';
 
 import {getVoiceSuggestions} from '../../helpers/GetVoiceSuggestions'
 
 import { Stack, Badge } from '@twilio-paste/core';
-
-// export interface AiSuggestionProps {
-//   transcript: TranscriptTurn[];
-// }
 
 const AiSuggestions = (props) => {
   const [blocking, setBlocking] = useState(false);
@@ -53,15 +47,6 @@ const AiSuggestions = (props) => {
         .catch( (err) => console.warn('Error getting voice AI suggestion', err))
         .finally( () => setLoading(false))
 
-        
-
-    // VoiceSuggestionsService.getSuggestions('en', props.transcript)
-    //   .then((ai_suggestion) => {
-    //     if (ai_suggestion.success == true && ai_suggestion.suggestions.length > 0)
-    //       setSuggestions(ai_suggestion.suggestions);
-    //   })
-    //   .catch((err) => console.warn('Error getting voice AI suggestion', err))
-    //   .finally(() => setLoading(false));
   }, [props.transcript]);
 
   if (!suggestions || Object.hasOwn(suggestions, 'map')) return <></>;
