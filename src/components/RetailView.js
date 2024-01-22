@@ -54,7 +54,7 @@ const RetailView = (props) => {
                                     <Tabs baseId="conversations">
                                         <TabList aria-label="details-tab">
                                             <Tab>Transcript</Tab>
-                                            <Tab>Conversation</Tab>
+                                            <Tab>Summary</Tab>
                                             
                                         </TabList>
                                         <TabPanels>

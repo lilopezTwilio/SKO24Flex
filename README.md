@@ -56,7 +56,18 @@ npm i
 
 3. Create a Twilio [account profile](https://www.twilio.com/docs/twilio-cli/general-usage/profiles) and mark it [active](https://www.twilio.com/docs/twilio-cli/general-usage/profiles#set-an-active-profile)
 
-4. Launch the Flex Plugin
+4. Configure .env file
+```sh
+cp .env.example .env
+```
+
+5. Copy public/appConfig.example.js to appConfig.js
+
+```sh
+cp appConfig.example.js appConfig.js
+```
+
+6. Launch the Flex Plugin
 
 While logged into the Twilio Flex account via Twilio Console, launch the Flex Plugin on port 3001.
 
