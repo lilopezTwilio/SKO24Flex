@@ -1,3 +1,4 @@
+var accountSid='<YOUR_ACCOUNT_SID>'
 var appConfig = {
   pluginService: {
     enabled: true,

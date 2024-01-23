@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@twilio-paste/tabs';
+import { Table, THead, Tr, Th, TBody, Td, TFoot} from '@twilio-paste/core/table'
 import {Grid, Column } from '@twilio-paste/core/grid'
 import { Separator } from '@twilio-paste/separator';
 
@@ -11,13 +12,14 @@ import Iframe from "./Iframe/Iframe";
 
 
 const orders = [
-    {orderNumber: 12345, orderDate : '12/20/2023', amount : '$100.20', trackingNumber: '12345vx87gh123',orderItems : [
+    {orderNumber: 12345, orderDate : '12/20/2023', amount : '$98.98', trackingNumber: '12345vx87gh123',orderItems : [
         { item: 1, description: 'Twilio Geometric Chucks', size: '12', amount: '$49.99', quantity: '1'},
         { item: 2, description: 'Twilio Inifinity Watch', size: '', amount: '$49.99', quantity: '1'},
     ]}
 ]
 
 const styles = {
+    tableWrapper: {width: '100%'},
     table : {
         border : '1px solid #ededed',
     },
@@ -80,52 +82,63 @@ const RetailView = (props) => {
                     <TabPanel>
                         <Grid gutter="space30">
                             <Column span={12}><h1 style={styles.orderHeading}>Orders</h1></Column>
+                            <div style={styles.tableWrapper}>
+
                             <p>&nbsp;</p>
                                     {
                                         orders.map((order, index) => (
-                                            <table width={'100%'}>
-                                                <tr style={styles.orderRow} key={index}>
-                                                    <td style={styles.orderCell} width={100}>OrderNo: </td>
-                                                    <td style={styles.orderCell}>{order.orderNumber}</td>
-                                                    <td style={styles.orderCell}>Total Amount</td>
-                                                    <td style={styles.orderCell}>{order.amount}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td style={styles.orderCell}>Tracking Number</td>
-                                                    <td style={styles.orderCell}>{order.trackingNumber}</td>
-                                                    <td style={styles.orderCell}>Date</td>
-                                                    <td style={styles.orderCell}>{order.orderDate}</td>                                                                                                        
+                                            <Table style={{width: '100%'}}>
+                                                <THead>
 
-                                                </tr>
-                                                <tr style={styles.orderRow}><td colSpan={6}>&nbsp;</td></tr>
-                                                <tr style={styles.orderRow}>
-                                                    <td colSpan={6}>
-                                                        <table width={'100%'}>
-                                                            <thead>
-                                                                <th style={styles.orderItemCell}>Item</th>
-                                                                <th style={styles.orderItemCell}>Quantity</th>
-                                                                <th style={styles.orderItemCell}>Description</th>
-                                                                <th style={styles.orderItemCell}>Size</th>
-                                                                <th style={styles.orderItemCell}>Amount</th>
-                                                            </thead>
+                                                </THead>
+                                                <TBody>
+                                                <Tr style={styles.orderRow} key={index}>
+                                                    <Td style={styles.orderCell} width={100}>OrderNo: </Td>
+                                                    <Td style={styles.orderCell}>{order.orderNumber}</Td>
+                                                    <Td style={styles.orderCell}>Total Amount</Td>
+                                                    <Td style={styles.orderCell}>{order.amount}</Td>
+                                                </Tr>
+                                                <Tr>
+                                                    <Td style={styles.orderCell}>Tracking Number</Td>
+                                                    <Td style={styles.orderCell}>{order.trackingNumber}</Td>
+                                                    <Td style={styles.orderCell}>Date</Td>
+                                                    <Td style={styles.orderCell}>{order.orderDate}</Td>                                                                                                        
+
+                                                </Tr>
+                                                <Tr style={styles.orderRow}><Td colSpan={6}>&nbsp;</Td></Tr>
+                                                <Tr style={styles.orderRow}>
+                                                    <Td colSpan={6}>
+                                                        <Table width={'100%'}>
+                                                            <THead>
+                                                                <Th style={styles.orderItemCell}>Item</Th>
+                                                                <Th style={styles.orderItemCell}>Quantity</Th>
+                                                                <Th style={styles.orderItemCell}>Description</Th>
+                                                                <Th style={styles.orderItemCell}>Size</Th>
+                                                                <Th style={styles.orderItemCell}>Amount</Th>
+                                                            </THead>
+                                                            <TBody>
                                                         {
                                                             order.orderItems.map( (item, index) =>(
-                                                                    <tr style={styles.orderItemRow}>
-                                                                        <td style={styles.orderItemCell}>{item.item}</td>
-                                                                        <td style={styles.orderItemCell}>{item.quantity}</td>
-                                                                        <td style={styles.orderItemCell}>{item.description}</td>
-                                                                        <td style={styles.orderItemCell}>{item.size}</td>
-                                                                        <td style={styles.orderItemCell}>{item.amount}</td>
-                                                                    </tr>
+                                                                    <Tr style={styles.orderItemRow} key={index}>
+                                                                        <Td style={styles.orderItemCell}>{item.item}</Td>
+                                                                        <Td style={styles.orderItemCell}>{item.quantity}</Td>
+                                                                        <Td style={styles.orderItemCell}>{item.description}</Td>
+                                                                        <Td style={styles.orderItemCell}>{item.size}</Td>
+                                                                        <Td style={styles.orderItemCell}>{item.amount}</Td>
+                                                                    </Tr>
                                                             ))
                                                         }
-                                                            <tr style={styles.orderItemRow}><td></td></tr>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                                            <Tr style={styles.orderItemRow}><Td></Td></Tr>
+                                                            </TBody>
+                                                        </Table>
+                                                    </Td>
+                                                </Tr>
+                                                </TBody>
+                                            </Table>
                                         ))
                                     }
+                            </div>
+
                         </Grid>
                     </TabPanel>
 

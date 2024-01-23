@@ -54,6 +54,7 @@ npm i
 #### Run Express Server ( port 8080 )
 
 ```sh
+cd src
 node index.js
 ```
 
