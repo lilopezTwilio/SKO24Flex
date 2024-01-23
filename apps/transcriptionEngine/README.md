@@ -11,27 +11,7 @@ Ensure that you have the appropriate keys from Google/Microsoft for the respecti
 ## Example
 ![Demo](docs/example.jpg)
 
-### Google Cloud Run
-
-
-1. Install the Google [Cloud CLI](https://cloud.google.com/sdk/docs/install)
-```sh
-$ gcloud init
-```
-2. gcloud run deploy twilio-media-receiver --source .
-3. Set the environment variables (from .env)
-
-#### Alternative
-1. gcloud builds submit --pack image=[IMAGE]
-2. gcloud run deploy twilio-media-receiver --image [IMAGE]
-
-
-### Azure Speech Services (Recommended)
-Steps to get MS Keys (See Node Tutorial:  https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk )
-1. Signup for a free Azure Subscription: https://azure.microsoft.com/en-us/free/ai-services/
-2. Select a Speech Region: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/regions
-
-### Setup/Run 
+### Running Locally 
 Follow these basic steps to get the Media Stream Transcription Engine running.
 
 #### Configure Environment Variables
@@ -62,6 +42,24 @@ node index.js
 ```sh
 ./ngrok http --subdomain=<your subdomain> 8080
 ```
+
+### Deploying to Google Cloud
+1. Install the Google [Cloud CLI](https://cloud.google.com/sdk/docs/install)
+```sh
+$ gcloud init
+```
+2. gcloud run deploy twilio-media-receiver --source .
+3. Set the environment variables (from .env)
+
+#### Alternative
+1. gcloud builds submit --pack image=[IMAGE]
+2. gcloud run deploy twilio-media-receiver --image [IMAGE]
+
+
+### Azure Speech Services (Recommended)
+Steps to get MS Keys (See Node Tutorial:  https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk )
+1. Signup for a free Azure Subscription: https://azure.microsoft.com/en-us/free/ai-services/
+2. Select a Speech Region: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/regions
 
 
 ### Resources

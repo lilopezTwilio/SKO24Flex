@@ -40,32 +40,42 @@ This package is located within 'apps/serverless'. Follow the README instructions
 After setup and configuration, launch the serverless ( twilio serverless:start ) to run locally on port 3000.
 
 ### Import Studio Flow
-This package is located within 'apps/studio'. Within Twilio Studio, create a "New Flow" and import the JSON (copy/paste) from this resource.
+This package is located within 'apps/studio'. Within Twilio Studio, create a "New Flow" and import the JSON (copy/paste) from this resource. After your flow is imported, make the following changes:
+
+1. Update the StreamInbound widget to include the Ngrok URL from your transcriptionEngine service.
+1. Update the Workflow setting on the "Send to Flex" widget to "Assign to Anyone".
+1. Update Task Channel setting on the "Send to Flex Widget" to "Default".
+1. You can also update the "Attributes" field with customer attributes to suit your demo needs.
+1. Republish your flow.
 
 ### Flex Plugin - Setup and Configure
 
-The following steps are necessary to configure and test the Flex Plugin.
+The following steps are necessary to configure and test the Flex Plugin found in `/src`.
 
-1. Build the package dependencies.
+1. Configure .env file
+```sh
+cp .env.example .env
+```
+
+2. Copy public/appConfig.example.js to appConfig.js
+
+```sh
+cp appConfig.example.js appConfig.js
+```
+
+3. Swich to the `src` directory: `cd /src`
+
+4. Build the package dependencies.
 
 ```sh
 npm i
 ```
 
-2. Install necessary pre-requisites ( [Twilio CLI](https://www.twilio.com/docs/twilio-cli/getting-started/install), [Flex Plugins CLI](https://www.twilio.com/docs/flex/developer/plugins/cli) & [Twilio Serverless Toolkit](https://www.twilio.com/docs/labs/serverless-toolkit) )
+3. Install necessary pre-requisites ( [Twilio CLI](https://www.twilio.com/docs/twilio-cli/getting-started/install), [Flex Plugins CLI](https://www.twilio.com/docs/flex/developer/plugins/cli) & [Twilio Serverless Toolkit](https://www.twilio.com/docs/labs/serverless-toolkit) )
 
-3. Create a Twilio [account profile](https://www.twilio.com/docs/twilio-cli/general-usage/profiles) and mark it [active](https://www.twilio.com/docs/twilio-cli/general-usage/profiles#set-an-active-profile)
+5. From the CLI, Create a Twilio [account profile](https://www.twilio.com/docs/twilio-cli/general-usage/profiles) and mark it [active](https://www.twilio.com/docs/twilio-cli/general-usage/profiles#set-an-active-profile)
 
-4. Configure .env file
-```sh
-cp .env.example .env
-```
 
-5. Copy public/appConfig.example.js to appConfig.js
-
-```sh
-cp appConfig.example.js appConfig.js
-```
 
 6. Launch the Flex Plugin
 
