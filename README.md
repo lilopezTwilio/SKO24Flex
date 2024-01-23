@@ -57,7 +57,7 @@ The following steps are necessary to configure and test the Flex Plugin found in
 cp .env.example .env
 ```
 
-2. Copy public/appConfig.example.js to appConfig.js
+2. Copy public/appConfig.example.js to appConfig.js, set your Flex accountSid within 'appConfig.js'
 
 ```sh
 cp appConfig.example.js appConfig.js
@@ -71,13 +71,13 @@ cp appConfig.example.js appConfig.js
 npm i
 ```
 
-3. Install necessary pre-requisites ( [Twilio CLI](https://www.twilio.com/docs/twilio-cli/getting-started/install), [Flex Plugins CLI](https://www.twilio.com/docs/flex/developer/plugins/cli) & [Twilio Serverless Toolkit](https://www.twilio.com/docs/labs/serverless-toolkit) )
+5. Install necessary pre-requisites ( [Twilio CLI](https://www.twilio.com/docs/twilio-cli/getting-started/install), [Flex Plugins CLI](https://www.twilio.com/docs/flex/developer/plugins/cli) & [Twilio Serverless Toolkit](https://www.twilio.com/docs/labs/serverless-toolkit) )
 
-5. From the CLI, Create a Twilio [account profile](https://www.twilio.com/docs/twilio-cli/general-usage/profiles) and mark it [active](https://www.twilio.com/docs/twilio-cli/general-usage/profiles#set-an-active-profile)
+6. From the CLI, Create a Twilio [account profile](https://www.twilio.com/docs/twilio-cli/general-usage/profiles) and mark it [active](https://www.twilio.com/docs/twilio-cli/general-usage/profiles#set-an-active-profile)
 
 
 
-6. Launch the Flex Plugin
+7. Launch the Flex Plugin
 
 While logged into the Twilio Flex account via Twilio Console, launch the Flex Plugin on port 3001.
 

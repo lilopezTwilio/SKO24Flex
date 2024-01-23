@@ -24,7 +24,7 @@ Twilio ENV Variables
 1. TWILIO_ACCOUNT_SID
 2. TWILIO_API_KEY
 3. TWILIO_API_SECRET
-4. TWILIO_SYNC_SERVICE_SID
+4. TWILIO_SYNC_SERVICE_SID ( use default service for Flex )
 
 #### Build package dependencies
 
@@ -34,6 +34,7 @@ npm i
 #### Run Express Server ( port 8080 )
 
 ```sh
+cd src
 node index.js
 ```
 

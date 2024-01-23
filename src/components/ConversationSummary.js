@@ -7,6 +7,8 @@ import {Grid, Column } from '@twilio-paste/core/grid'
 import { Heading } from '@twilio-paste/heading';
 import { Paragraph } from '@twilio-paste/paragraph';
 
+import { getConverstationSummary } from "../helpers/GetConversationSummary";
+
 
 const styles = {
     wrapper : {
@@ -26,14 +28,22 @@ const ConversationSummary = (props) => {
     any other changes as needed. 
     */
 
-    /*
-    useEffect(() => {
-        fetch('https://your-serverless-function-url.com')
-          .then(response => response.json())
-          .then(data => setMessage(data.message))
-          .catch(error => console.error('Error:', error));
-      }, []);
-    */
+    
+    // useEffect(() => {
+
+    //     const getSummary = async () => {
+    //         console.log('getSummary')
+    //         let result = await getConverstationSummary()
+    //     }
+
+    //     getSummary()
+
+    //     // fetch('https://your-serverless-function-url.com')
+    //     //   .then(response => response.json())
+    //     //   .then(data => setMessage(data.message))
+    //     //   .catch(error => console.error('Error:', error));
+    //   }, []);
+    
 
     let layout = (
         <div>
