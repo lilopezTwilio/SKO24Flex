@@ -15,7 +15,7 @@ export const getConverstationSummary = async (language, conversation) => {
   
     var config = {
         method: 'post',
-        url: `${process.env.REACT_APP_SERVERLESS_DOMAIN}/realtime-voice-suggestions/ai-suggestion`,
+        url: `${process.env.REACT_APP_SERVERLESS_DOMAIN}/conversation-summary/getConversationSummary`,
         headers: { 
           'Content-Type': 'application/json', 
         },

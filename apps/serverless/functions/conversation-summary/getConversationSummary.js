@@ -13,6 +13,8 @@ exports.handler = async (context, event, callback) => {
     response.appendHeader("Access-Control-Allow-Methods", "OPTIONS, POST, GET");
     response.appendHeader("Access-Control-Allow-Headers", "Content-Type");
     response.appendHeader("Content-Type", "application/json");
+
+    callback(null, response.setBody({status: 'success'}))
   
     const twilioSyncServiceSid = context.TRANSCRIPT_SYNC_SERVICE_SID;
     console.log("Incoming event to store document", event);

@@ -61,7 +61,7 @@ npm i
 cp .env.example .env
 ```
 
-5. Copy public/appConfig.example.js to appConfig.js
+5. Copy public/appConfig.example.js to appConfig.js, set your Flex accountSid within 'appConfig.js'
 
 ```sh
 cp appConfig.example.js appConfig.js
