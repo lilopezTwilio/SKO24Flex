@@ -18,13 +18,13 @@ Follow these basic steps to get the Media Stream Transcription Engine running.
 The following variables are required:
 
 1. MS_SPEECH_KEY
-2. MS_SPEECH_REGION
+2. westus
 
 Twilio ENV Variables
-1. TWILIO_ACCOUNT_SID
-2. TWILIO_API_KEY
-3. TWILIO_API_SECRET
-4. TWILIO_SYNC_SERVICE_SID ( use default service for Flex )
+1. ACd8f062eded7e4b5f74154d86bd42d13e
+2. d6f270cc6f3f1d4d0a279449f5b201a8
+3. S3krMCVUEI8xVGGg65RFFTWbW1d3KRgk
+4. ISa8cd60e81d75dffda99aa450b30675a5
 
 #### Build package dependencies
 
